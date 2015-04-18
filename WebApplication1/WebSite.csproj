@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7B4A0433-9812-4A6D-A1E5-50246D95BE75}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApplication1</RootNamespace>
+    <AssemblyName>WebApplication1</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <NoStdLib>True</NoStdLib>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="bower_components\polymer\docs\index.html" />
+    <Content Include="bower_components\polymer\explainer\data-bind.png" />
+    <Content Include="bower_components\polymer\explainer\samples.html" />
+    <Content Include="bower_components\polymer\polymer-micro.html" />
+    <Content Include="bower_components\polymer\polymer-mini.html" />
+    <Content Include="bower_components\polymer\polymer.html" />
+    <Content Include="bower_components\polymer\src\expr\focus.html" />
+    <Content Include="bower_components\polymer\src\expr\gestures.html" />
+    <Content Include="bower_components\polymer\src\expr\log.html" />
+    <Content Include="bower_components\polymer\src\expr\sinspect.html" />
+    <Content Include="bower_components\polymer\src\expr\style-auditor.html" />
+    <Content Include="bower_components\polymer\src\expr\style-protector.html" />
+    <Content Include="bower_components\polymer\src\features\micro\attributes.html" />
+    <Content Include="bower_components\polymer\src\features\micro\constructor.html" />
+    <Content Include="bower_components\polymer\src\features\micro\extends.html" />
+    <Content Include="bower_components\polymer\src\features\micro\mixins.html" />
+    <Content Include="bower_components\polymer\src\features\micro\properties.html" />
+    <Content Include="bower_components\polymer\src\features\mini\ready.html" />
+    <Content Include="bower_components\polymer\src\features\mini\shadow.html" />
+    <Content Include="bower_components\polymer\src\features\mini\shady.html" />
+    <Content Include="bower_components\polymer\src\features\mini\template.html" />
+    <Content Include="bower_components\polymer\src\features\standard\annotations.html" />
+    <Content Include="bower_components\polymer\src\features\standard\configure.html" />
+    <Content Include="bower_components\polymer\src\features\standard\effects.html" />
+    <Content Include="bower_components\polymer\src\features\standard\events.html" />
+    <Content Include="bower_components\polymer\src\features\standard\notify-path.html" />
+    <Content Include="bower_components\polymer\src\features\standard\resolveUrl.html" />
+    <Content Include="bower_components\polymer\src\features\standard\styling.html" />
+    <Content Include="bower_components\polymer\src\features\standard\utils.html" />
+    <Content Include="bower_components\polymer\src\features\standard\x-styling.html" />
+    <Content Include="bower_components\polymer\src\lib\annotations\annotations.html" />
+    <Content Include="bower_components\polymer\src\lib\annotations\demo\app-chrome.html" />
+    <Content Include="bower_components\polymer\src\lib\array-observe.html" />
+    <Content Include="bower_components\polymer\src\lib\array-splice.html" />
+    <Content Include="bower_components\polymer\src\lib\async.html" />
+    <Content Include="bower_components\polymer\src\lib\base.html" />
+    <Content Include="bower_components\polymer\src\lib\bind\bind-annotations.html" />
+    <Content Include="bower_components\polymer\src\lib\bind\bind-effects.html" />
+    <Content Include="bower_components\polymer\src\lib\bind\bind.html" />
+    <Content Include="bower_components\polymer\src\lib\bind\demo\app-chrome.html" />
+    <Content Include="bower_components\polymer\src\lib\bind\demo\app.html" />
+    <Content Include="bower_components\polymer\src\lib\bind\demo\src\annotations-bind-demo.html" />
+    <Content Include="bower_components\polymer\src\lib\bind\demo\src\bind-demo.html" />
+    <Content Include="bower_components\polymer\src\lib\case-map.html" />
+    <Content Include="bower_components\polymer\src\lib\collection.html" />
+    <Content Include="bower_components\polymer\src\lib\css-parse.html" />
+    <Content Include="bower_components\polymer\src\lib\debounce.html" />
+    <Content Include="bower_components\polymer\src\lib\dom-api.html" />
+    <Content Include="bower_components\polymer\src\lib\dom-module.html" />
+    <Content Include="bower_components\polymer\src\lib\event-api.html" />
+    <Content Include="bower_components\polymer\src\lib\gestures.html" />
+    <Content Include="bower_components\polymer\src\lib\lang.html" />
+    <Content Include="bower_components\polymer\src\lib\module.html" />
+    <Content Include="bower_components\polymer\src\lib\polymer.html" />
+    <Content Include="bower_components\polymer\src\lib\resolve-url.html" />
+    <Content Include="bower_components\polymer\src\lib\settings.html" />
+    <Content Include="bower_components\polymer\src\lib\style-defaults.html" />
+    <Content Include="bower_components\polymer\src\lib\style-transformer.html" />
+    <Content Include="bower_components\polymer\src\lib\style-util.html" />
+    <Content Include="bower_components\polymer\src\lib\template\templatizer.html" />
+    <Content Include="bower_components\polymer\src\lib\template\x-array-selector.html" />
+    <Content Include="bower_components\polymer\src\lib\template\x-autobind.html" />
+    <Content Include="bower_components\polymer\src\lib\template\x-if.html" />
+    <Content Include="bower_components\polymer\src\lib\template\x-repeat.html" />
+    <Content Include="bower_components\polymer\src\lib\template\x-template.html" />
+    <Content Include="bower_components\polymer\src\lib\x-style.html" />
+    <Content Include="bower_components\polymer\src\polymer.html" />
+    <Content Include="bower_components\polymer\wct.conf.js" />
+    <Content Include="bower_components\webcomponentsjs\CustomElements.js" />
+    <Content Include="bower_components\webcomponentsjs\CustomElements.min.js" />
+    <Content Include="bower_components\webcomponentsjs\HTMLImports.js" />
+    <Content Include="bower_components\webcomponentsjs\HTMLImports.min.js" />
+    <Content Include="bower_components\webcomponentsjs\ShadowDOM.js" />
+    <Content Include="bower_components\webcomponentsjs\ShadowDOM.min.js" />
+    <Content Include="bower_components\webcomponentsjs\webcomponents-lite.js" />
+    <Content Include="bower_components\webcomponentsjs\webcomponents-lite.min.js" />
+    <Content Include="bower_components\webcomponentsjs\webcomponents.js" />
+    <Content Include="bower_components\webcomponentsjs\webcomponents.min.js" />
+    <Content Include="default.html" />
+    <Content Include="elements\my-element.html" />
+    <Content Include="Scripts\mscorlib.js" />
+    <Content Include="Scripts\saltarelle-polymer.js" />
+    <Content Include="Scripts\Test.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="bower_components\polymer\bower.json" />
+    <Content Include="bower_components\polymer\build.bat" />
+    <Content Include="bower_components\polymer\explainer\data-bind.vsdx" />
+    <Content Include="bower_components\polymer\PRIMER.md" />
+    <Content Include="bower_components\polymer\README.md" />
+    <Content Include="bower_components\webcomponentsjs\bower.json" />
+    <Content Include="bower_components\webcomponentsjs\build.log" />
+    <Content Include="bower_components\webcomponentsjs\package.json" />
+    <Content Include="bower_components\webcomponentsjs\README.md" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib">
+      <HintPath>$(SolutionDir)packages\Saltarelle.Runtime.2.6.2\tools\Assemblies\mscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="Saltarelle.Web">
+      <HintPath>..\packages\Saltarelle.Web.3.1.0\lib\Saltarelle.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bower_components\core-component-page\" />
+    <Folder Include="bower_components\NodeBind\conf\" />
+    <Folder Include="bower_components\NodeBind\src\" />
+    <Folder Include="bower_components\observe-js\benchmark\chartjs\" />
+    <Folder Include="bower_components\observe-js\conf\" />
+    <Folder Include="bower_components\observe-js\examples\" />
+    <Folder Include="bower_components\observe-js\src\" />
+    <Folder Include="bower_components\observe-js\util\" />
+    <Folder Include="bower_components\polymer-expressions\conf\" />
+    <Folder Include="bower_components\polymer-expressions\src\" />
+    <Folder Include="bower_components\polymer-expressions\third_party\esprima\" />
+    <Folder Include="bower_components\polymer-gestures\conf\" />
+    <Folder Include="bower_components\polymer-gestures\samples\pinch\" />
+    <Folder Include="bower_components\polymer-gestures\samples\simple\" />
+    <Folder Include="bower_components\polymer-gestures\src\" />
+    <Folder Include="bower_components\polymer-gestures\test\html\" />
+    <Folder Include="bower_components\polymer-gestures\test\js\" />
+    <Folder Include="bower_components\polymer\conf\" />
+    <Folder Include="bower_components\polymer\dist\" />
+    <Folder Include="bower_components\polymer\src\declaration\" />
+    <Folder Include="bower_components\polymer\src\instance\" />
+    <Folder Include="bower_components\polymer\src\system\HTMLImports\" />
+    <Folder Include="bower_components\polymer\test\html\element-import\" />
+    <Folder Include="bower_components\polymer\test\html\element-script\" />
+    <Folder Include="bower_components\polymer\test\html\mdv-tests\" />
+    <Folder Include="bower_components\polymer\test\html\resolve\" />
+    <Folder Include="bower_components\polymer\test\html\styling\rules\coloring\" />
+    <Folder Include="bower_components\polymer\test\html\styling\rules\sizing\" />
+    <Folder Include="bower_components\polymer\test\html\styling\rules\translations\" />
+    <Folder Include="bower_components\polymer\test\html\url-import\" />
+    <Folder Include="bower_components\polymer\test\js\" />
+    <Folder Include="bower_components\polymer\test\lib\" />
+    <Folder Include="bower_components\polymer\workbench\events\" />
+    <Folder Include="bower_components\polymer\workbench\images\" />
+    <Folder Include="bower_components\polymer\workbench\mdv\" />
+    <Folder Include="bower_components\polymer\workbench\moreSmoke\" />
+    <Folder Include="bower_components\polymer\workbench\null\" />
+    <Folder Include="bower_components\polymer\workbench\oldSmoke\" />
+    <Folder Include="bower_components\polymer\workbench\oop\" />
+    <Folder Include="bower_components\polymer\workbench\register\" />
+    <Folder Include="bower_components\polymer\workbench\smoke\" />
+    <Folder Include="bower_components\polymer\workbench\styling\" />
+    <Folder Include="bower_components\TemplateBinding\benchmark\" />
+    <Folder Include="bower_components\TemplateBinding\docs\images\README\" />
+    <Folder Include="bower_components\TemplateBinding\examples\how_to\" />
+    <Folder Include="bower_components\TemplateBinding\examples\util\" />
+    <Folder Include="bower_components\TemplateBinding\src\" />
+    <Folder Include="bower_components\URL\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" Condition="!Exists('$(SolutionDir)packages\Saltarelle.Compiler.2.6.2\tools\Saltarelle.Compiler.targets')" />
+  <Import Project="$(SolutionDir)packages\Saltarelle.Compiler.2.6.2\tools\Saltarelle.Compiler.targets" Condition="Exists('$(SolutionDir)packages\Saltarelle.Compiler.2.6.2\tools\Saltarelle.Compiler.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>30868</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:27303/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

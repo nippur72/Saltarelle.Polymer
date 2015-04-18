@@ -1,3 +1,14 @@
+# Skip these
+packages/
+Polymer/bin
+Polymer/obj
+Test/bin
+Test/obj
+WebApplication1/bin
+WebApplication1/obj
+WebApplication1/bower_components/
+
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
