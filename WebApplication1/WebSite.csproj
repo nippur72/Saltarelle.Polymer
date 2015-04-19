@@ -118,6 +118,8 @@
     <Content Include="bower_components\webcomponentsjs\webcomponents.js" />
     <Content Include="bower_components\webcomponentsjs\webcomponents.min.js" />
     <Content Include="default.html" />
+    <Content Include="elements\my-app.html" />
+    <Content Include="elements\my-input.html" />
     <Content Include="elements\my-element.html" />
     <Content Include="Scripts\mscorlib.js" />
     <Content Include="Scripts\saltarelle-polymer.js" />

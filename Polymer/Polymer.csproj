@@ -55,6 +55,8 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="PolymerElement.cs" />
+    <Compile Include="Attributes.cs" />
     <Compile Include="Polymer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

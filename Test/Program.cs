@@ -11,7 +11,9 @@ public class Program
 {
    public static void Mainx()
    {      
-      Polymer.Register<MyElement>("my-element");    
+      Polymer.Register<MyElement>();    
+      Polymer.Register<MyInput>();    
+      Polymer.Register<MyApp>();
    }
 }
 

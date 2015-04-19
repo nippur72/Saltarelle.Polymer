@@ -6,18 +6,21 @@
    <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
 
    <link rel="import" href="bower_components/polymer/polymer.html">
+
+   <link rel="import" href="elements/my-input.html">
    <link rel="import" href="elements/my-element.html">
-   
+   <link rel="import" href="elements/my-app.html">
+
    <script type="text/javascript" src="Scripts/mscorlib.js"></script>
    <script type="text/javascript" src="Scripts/saltarelle-polymer.js"></script>
    <script type="text/javascript" src="Scripts/Test.js"></script>
 
 </head>
 <body>
+
    <hr />
-   <my-element aprop="nino"></my-element>
+   <my-app></my-app>
    <hr />
-   <my-element></my-element>
 
    <script>
       window.addEventListener('WebComponentsReady', function (e) {

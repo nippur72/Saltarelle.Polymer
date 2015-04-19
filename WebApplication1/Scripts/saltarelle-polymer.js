@@ -3,6 +3,21 @@
 	var $asm = {};
 	ss.initAssembly($asm, 'saltarelle-polymer');
 	////////////////////////////////////////////////////////////////////////////////
+	// CustomTagAttribute
+	var $CustomTagAttribute = function(tagName) {
+		this.name = null;
+		this.extends$1 = null;
+		this.name = tagName;
+	};
+	$CustomTagAttribute.__typeName = 'CustomTagAttribute';
+	$CustomTagAttribute.$ctor1 = function(tagName, extends1) {
+		this.name = null;
+		this.extends$1 = null;
+		this.name = tagName;
+		this.extends$1 = extends1;
+	};
+	global.CustomTagAttribute = $CustomTagAttribute;
+	////////////////////////////////////////////////////////////////////////////////
 	// PolymerElement
 	var $PolymerElement = function() {
 	};
@@ -17,33 +32,48 @@
 	};
 	$PolymerHelper.__typeName = 'PolymerHelper';
 	$PolymerHelper.Register = function(T) {
-		return function(name) {
-			// map published fields as properties
+		return function() {
 			var type = T;
-			var properties = {};
-			var $t1 = ss.getMembers(type, 4, 28);
+			// reads [CustomTag]       
+			var customTag = null;
+			var $t1 = ss.getAttributes(type, $CustomTagAttribute, true);
 			for (var $t2 = 0; $t2 < $t1.length; $t2++) {
-				var field = $t1[$t2];
-				// see if it's defined the PropertyAttribute
+				var attr = $t1[$t2];
+				customTag = ss.safeCast(attr, $CustomTagAttribute);
+				break;
+			}
+			if (ss.isNullOrUndefined(customTag)) {
+				throw new ss.Exception('Element class must specify a [CustomTag] attribute');
+			}
+			if (ss.isNullOrUndefined(customTag.name)) {
+				throw new ss.Exception('Element class must specify a name with a [CustomTag(name)] attribute');
+			}
+			//
+			// map published fields as properties
+			//
+			var properties = {};
+			var $t3 = ss.getMembers(type, 4, 28);
+			for (var $t4 = 0; $t4 < $t3.length; $t4++) {
+				var field = $t3[$t4];
 				var attributes = (field.attr || []).filter(function(a) {
-					return ss.isInstanceOfType(a, $PropertyAttribute);
+					return ss.isInstanceOfType(a, $PublishedAttribute);
 				});
 				if (attributes.length === 0) {
 					continue;
 				}
 				var property = {};
-				var attribute = ss.safeCast(attributes[0], $PropertyAttribute);
+				var attribute = ss.safeCast(attributes[0], $PublishedAttribute);
 				property['type'] = field.returnType;
 				if (ss.isValue(attribute.value)) {
 					property['value'] = attribute.value;
 				}
-				if (ss.isValue(attribute.reflectToAttribute)) {
+				if (attribute.reflectToAttribute !== false) {
 					property['reflectToAttribute'] = attribute.reflectToAttribute;
 				}
-				if (ss.isValue(attribute.readOnly)) {
+				if (attribute.readOnly !== false) {
 					property['readOnly'] = attribute.readOnly;
 				}
-				if (ss.isValue(attribute.notify)) {
+				if (attribute.notify !== false) {
 					property['notify'] = attribute.notify;
 				}
 				if (ss.isValue(attribute.computed)) {
@@ -55,26 +85,36 @@
 				// write into properties object
 				properties[field.name] = property;
 			}
+			// 
+			// assemble Polymer configuration object
+			//
 			var prototype = type.prototype;
-			prototype['is'] = name;
+			prototype['is'] = customTag.name;
+			if (ss.isValue(customTag.extends$1)) {
+				prototype['extends'] = customTag.extends$1;
+			}
 			prototype['properties'] = properties;
+			//Debug.Break();          
+			// register element in Polymer
 			Polymer(prototype);
 		};
 	};
 	global.PolymerHelper = $PolymerHelper;
 	////////////////////////////////////////////////////////////////////////////////
-	// PropertyAttribute
-	var $PropertyAttribute = function() {
+	// PublishedAttribute
+	var $PublishedAttribute = function() {
 		this.value = null;
-		this.reflectToAttribute = null;
-		this.readOnly = null;
-		this.notify = null;
+		this.reflectToAttribute = false;
+		this.readOnly = false;
+		this.notify = false;
 		this.computed = null;
 		this.observer = null;
 	};
-	$PropertyAttribute.__typeName = 'PropertyAttribute';
-	global.PropertyAttribute = $PropertyAttribute;
+	$PublishedAttribute.__typeName = 'PublishedAttribute';
+	global.PublishedAttribute = $PublishedAttribute;
+	ss.initClass($CustomTagAttribute, $asm, {});
+	$CustomTagAttribute.$ctor1.prototype = $CustomTagAttribute.prototype;
 	ss.initClass($PolymerElement, $asm, {});
 	ss.initClass($PolymerHelper, $asm, {});
-	ss.initClass($PropertyAttribute, $asm, {});
+	ss.initClass($PublishedAttribute, $asm, {});
 })();

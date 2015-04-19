@@ -38,13 +38,33 @@ Very briefly:
 
 1. Put a `[assembly: PreserveMemberCase]` directive in your project to avoid camelCase troubles (I always do this in all my Saltarelle projects).
 2. Derive a class from `PolymerElement` (only if you want to access shadow DOM)
-3. Write event handlers as normal `public` methods.
-4. Write properties as `public` fields.
-5. Write published properties as `public` fields and decorate them with the `[Property()]` attribute decorator. The decorator has several parameters you might want to fill. The `type` is calculated automatically (from field's type).
-6. You can have static properties too.
-7. You can implement lifecycle events, e.g. `ready()`, `attached()` etc as normal `public` methods.
-8. Do not use the constructor, do not implement it. 
-9. Do not initialize properties directly, if you have to do initializations, you can do them in the `ready()` event or you can specify a default value in the `[Property()]` attribute.
+3. Decorate it with `[CustomTag("element-name")]`.
+4. Write event handlers as normal `public` methods.
+5. Write properties as `public` fields.
+6. Write published properties as `public` fields and decorate them with the `[Published()]` attribute decorator. The decorator has several parameters you might want to fill. The `type` is calculated automatically (from field's type).
+7. You can have static properties too.
+8. You can implement lifecycle events, e.g. `ready()`, `attached()` etc as normal `public` methods.
+9. Do not use the constructor, do not implement it. 
+10. Do not initialize properties directly, if you have to do initializations, you can do them in the `ready()` event or you can specify a default value in the `[Published()]` attribute.
+
+## Attribute decorators
+
+#### CustomTag
+`[CustomTag(elementName,extends)]`
+- **elementName**: the name of the element (must have a `-` e.g. `"my-element"`)
+- **extends**: (optional) the name of the HTML element the component is extending. As of 0.8 only native HTML elements are permitted.
+
+#### Published
+`[Published(value,reflectToAttribute,readOnly,notify,computed,observer)]`
+
+If `Published` is specified, the property becomes a published property. All parameters are optional. 
+
+- **value**: the default initialization value of the property.
+- **reflectToAttribute**: if true any change to the property is serialized out to an attribute of the same name.
+- **readOnly**: if true the property will be read-only    
+- **notify**: if true, sets two-way data binding and `propertyName-changed()` is fired whenever the property value changes     
+- **computed**: a string containing a method call that will be used to fill the value of the property
+- **observer**: a method name to call when the property value changes   
 
 ## History
 
