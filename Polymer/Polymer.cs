@@ -19,17 +19,25 @@ public class Polymer
    {
       Type type = typeof(T);      
 
-      // reads [CustomTag]       
-      CustomTagAttribute customTag = null;
-      foreach(var attr in type.GetCustomAttributes(typeof(CustomTagAttribute),true)) 
+      // reads [Tag]       
+      TagAttribute customTag = null;
+      foreach(var attr in type.GetCustomAttributes(typeof(TagAttribute),true)) 
       {
-         customTag = attr as CustomTagAttribute;
+         customTag = attr as TagAttribute;
          break;
       }
 
-      if(customTag==null) throw new Exception("Element class must specify a [CustomTag] attribute");
-      if(customTag.name==null) throw new Exception("Element class must specify a name with a [CustomTag(name)] attribute");
+      if(customTag==null) throw new Exception("Element class must specify a [Tag] attribute");
+      if(customTag.name==null) throw new Exception("Element class must specify a name with a [Tag(name)] attribute");
       
+      // reads [HostAttributes]       
+      HostAttributesAttribute hostAttribute = null;
+      foreach(var attr in type.GetCustomAttributes(typeof(HostAttributesAttribute),true)) 
+      {
+         hostAttribute = attr as HostAttributesAttribute;
+         break;
+      }
+
       //
       // map published fields as properties
       //
@@ -64,8 +72,8 @@ public class Polymer
       dynamic prototype = ((dynamic) type).prototype;
       prototype["is"] = customTag.name;     
       if(customTag.extends!=null) prototype["extends"] = customTag.extends;
-      prototype["properties"] = properties; 
-      //Debug.Break();          
+      if(hostAttribute!=null) prototype["hostAttributes"] = hostAttribute.hostAttributes;
+      prototype["properties"] = properties;              
       
       // register element in Polymer
       RegisterInPolymer(prototype);
@@ -74,12 +82,4 @@ public class Polymer
    [InlineCode("(function(e){{ window.addEventListener('WebComponentsReady', e); }})({eventReadyFunction})")]
    public extern static void WebComponentsReady(Action<object> eventReadyFunction);            
 }
-
-// computed properties
-// event delegates
-// this.$.container.querySelector('#inner');
-// observe
-// preventDispose: true
-// alwaysPrepare: true
-// Platform.flush()?
 

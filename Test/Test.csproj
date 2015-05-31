@@ -54,6 +54,7 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="elements\MyTimer.cs" />
     <Compile Include="elements\MyElement.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

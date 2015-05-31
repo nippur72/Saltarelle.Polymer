@@ -23,20 +23,31 @@ public class PublishedAttribute : Attribute
 }
 
 [AttributeUsage(AttributeTargets.Class)]
-public class CustomTagAttribute : Attribute
+public class TagAttribute : Attribute
 {
    public string name = null;
    public string extends = null;
 
-   public CustomTagAttribute(string tagName)
+   public TagAttribute(string tagName)
    {
       this.name = tagName;
    }
 
-   public CustomTagAttribute(string tagName, string extends)
+   public TagAttribute(string tagName, string extends)
    {
       this.name = tagName;
       this.extends = extends;
+   }
+}
+
+[AttributeUsage(AttributeTargets.Class)]
+public class HostAttributesAttribute : Attribute
+{
+   public object hostAttributes;
+
+	public HostAttributesAttribute(object attributes)
+   {
+      this.hostAttributes = attributes;
    }
 }
 

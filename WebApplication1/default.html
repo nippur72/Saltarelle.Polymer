@@ -9,6 +9,7 @@
 
    <link rel="import" href="elements/my-input.html">
    <link rel="import" href="elements/my-element.html">
+   <link rel="import" href="elements/my-timer.html">
    <link rel="import" href="elements/my-app.html">
 
    <script type="text/javascript" src="Scripts/mscorlib.js"></script>
@@ -22,10 +23,11 @@
    <my-app></my-app>
    <hr />
 
+   <my-timer start="42"></my-timer>
+
    <script>
-      window.addEventListener('WebComponentsReady', function (e) {
-         //debugger;
-         global.Program.Mainx();
+      window.addEventListener('WebComponentsReady', function (e) {         
+         global.Program.Main();
       });
    </script>
 

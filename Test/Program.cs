@@ -9,11 +9,13 @@ using System.Diagnostics;
 
 public class Program
 {
-   public static void Mainx()
+   public static void Main()
    {      
       Polymer.Register<MyElement>();    
       Polymer.Register<MyInput>();    
       Polymer.Register<MyApp>();
+
+		Polymer.Register<MyTimer>();
    }
 }
 

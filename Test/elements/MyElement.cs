@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Html.Media.Graphics;
 using System.Diagnostics;
 
-[CustomTag("my-element")]
+[Tag("my-element")]
 public class MyElement : PolymerElement
 {
    public static int static1 = 54;
@@ -19,7 +19,7 @@ public class MyElement : PolymerElement
    
    public string mionome;
 
-   [Published(value="sessantaquattro",observer="osserva",reflectToAttribute=true)]
+   [Published(value="sessantaquattro",notify=true, reflectToAttribute=true)]
    public string aprop;
 
    public void clicca()
@@ -41,20 +41,27 @@ public class MyElement : PolymerElement
 }
 
 
-[CustomTag("my-input")]
+[Tag("my-input")]
 public class MyInput : PolymerElement
 {
    [Published(value="prova", notify = true, reflectToAttribute=true)]
    public string testo;
 
+   /*
    public void created()
    {
      // this.super();
    }
+   */
+
+   public void modificato()
+   {
+      testo = testo + "a";
+   }
 }
 
 
-[CustomTag("my-app")]
+[Tag("my-app")]
 public class MyApp
 {
    [Published(notify=true)]

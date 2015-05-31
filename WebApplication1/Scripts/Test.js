@@ -27,14 +27,25 @@
 	$MyInput.__typeName = 'MyInput';
 	global.MyInput = $MyInput;
 	////////////////////////////////////////////////////////////////////////////////
+	// MyTimer
+	var $MyTimer = function() {
+		this.start = 0;
+		this.count = 0;
+		this.$timerHandle = 0;
+		ss.shallowCopy({}, this);
+	};
+	$MyTimer.__typeName = 'MyTimer';
+	global.MyTimer = $MyTimer;
+	////////////////////////////////////////////////////////////////////////////////
 	// Program
 	var $Program = function() {
 	};
 	$Program.__typeName = 'Program';
-	$Program.Mainx = function() {
+	$Program.Main = function() {
 		PolymerHelper.Register($MyElement).call(null);
 		PolymerHelper.Register($MyInput).call(null);
 		PolymerHelper.Register($MyApp).call(null);
+		PolymerHelper.Register($MyTimer).call(null);
 	};
 	global.Program = $Program;
 	ss.initClass($MyApp, $asm, {
@@ -56,30 +67,46 @@
 		}
 	}, PolymerElement);
 	ss.initClass($MyInput, $asm, {
-		created: function() {
-			// this.super();
+		modificato: function() {
+			this.testo = this.testo + 'a';
+		}
+	}, PolymerElement);
+	ss.initClass($MyTimer, $asm, {
+		ready: function() {
+			this.count = this.start;
+			this.$timerHandle = window.setInterval(ss.mkdel(this, function() {
+				this.count++;
+			}), 1000);
+		},
+		detatched: function() {
+			window.clearInterval(this.$timerHandle);
 		}
 	}, PolymerElement);
 	ss.initClass($Program, $asm, {});
-	ss.setMetadata($MyApp, { attr: [new CustomTagAttribute('my-app')], members: [{ attr: [(function() {
+	ss.setMetadata($MyApp, { attr: [new TagAttribute('my-app')], members: [{ attr: [(function() {
 		var $t1 = new PublishedAttribute();
 		$t1.notify = true;
 		return $t1;
 	})()], name: 'nomeutente', type: 4, returnType: String, sname: 'nomeutente' }] });
-	ss.setMetadata($MyElement, { attr: [new CustomTagAttribute('my-element')], members: [{ attr: [(function() {
+	ss.setMetadata($MyElement, { attr: [new TagAttribute('my-element')], members: [{ attr: [(function() {
 		var $t1 = new PublishedAttribute();
 		$t1.value = 'sessantaquattro';
-		$t1.observer = 'osserva';
+		$t1.notify = true;
 		$t1.reflectToAttribute = true;
 		return $t1;
 	})()], name: 'aprop', type: 4, returnType: String, sname: 'aprop' }] });
-	ss.setMetadata($MyInput, { attr: [new CustomTagAttribute('my-input')], members: [{ attr: [(function() {
+	ss.setMetadata($MyInput, { attr: [new TagAttribute('my-input')], members: [{ attr: [(function() {
 		var $t1 = new PublishedAttribute();
 		$t1.value = 'prova';
 		$t1.notify = true;
 		$t1.reflectToAttribute = true;
 		return $t1;
 	})()], name: 'testo', type: 4, returnType: String, sname: 'testo' }] });
+	ss.setMetadata($MyTimer, { attr: [new TagAttribute('my-timer')], members: [{ attr: [(function() {
+		var $t1 = new PublishedAttribute();
+		$t1.value = 0;
+		return $t1;
+	})()], name: 'start', type: 4, returnType: ss.Int32, sname: 'start' }] });
 	(function() {
 		$MyElement.static1 = 54;
 		$MyElement.static2 = 0;
