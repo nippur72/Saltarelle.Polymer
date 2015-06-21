@@ -5,10 +5,10 @@ using System.Runtime.CompilerServices;
 using System.Html.Media.Graphics;
 using System.Diagnostics;
 
-[Tag("my-timer")]
+[Component("my-timer")]
 public class MyTimer : PolymerElement
 {
-   [Published(value=0)]
+   [Property(value=0)]
    public int start;   
    
    public int count;   

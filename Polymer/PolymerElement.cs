@@ -7,9 +7,11 @@ using System.Diagnostics;
 
 #pragma warning disable 1591
 
-public delegate void PolymerEvent(/*Event*/ object ev, object detail, object sender);
+/*
+public delegate void PolymerEvent(object ev, object detail, object sender);
 public delegate void AttributeChanged(object attrName, object oldVal, object newVal);
 public delegate void ChangedWatcher(object oldVal, object newVal);
+*/
 
 public class PolymerElement
 {

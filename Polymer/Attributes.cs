@@ -7,37 +7,33 @@ using System.Diagnostics;
 
 #pragma warning disable 1591
 
-/// <summary>
-/// Specify that the field or property is a published Polymer property
-/// </summary>
-
-[AttributeUsage(AttributeTargets.Field|AttributeTargets.Property)]
-public class PublishedAttribute : Attribute
-{   
-   public object value = null;       
-   public bool   reflectToAttribute;
-   public bool   readOnly;    
-   public bool   notify;    
-   public string computed = null;
-   public string observer = null;   
-}
-
 [AttributeUsage(AttributeTargets.Class)]
-public class TagAttribute : Attribute
+public class ComponentAttribute : Attribute
 {
    public string name = null;
    public string extends = null;
 
-   public TagAttribute(string tagName)
+   public ComponentAttribute(string tagName)
    {
       this.name = tagName;
    }
 
-   public TagAttribute(string tagName, string extends)
+   public ComponentAttribute(string tagName, string extends)
    {
       this.name = tagName;
       this.extends = extends;
    }
+}
+
+[AttributeUsage(AttributeTargets.Class)]
+public class ExtendAttribute : Attribute
+{   
+   public string extends = null;
+
+   public ExtendAttribute(string tagName)
+   {
+      this.extends = tagName;
+   }  
 }
 
 [AttributeUsage(AttributeTargets.Class)]
@@ -51,3 +47,25 @@ public class HostAttributesAttribute : Attribute
    }
 }
 
+/// <summary>
+/// Specify that the field or property is a published Polymer property
+/// </summary>
+
+[AttributeUsage(AttributeTargets.Field|AttributeTargets.Property|AttributeTargets.Method)]
+public class PropertyAttribute : Attribute
+{   
+   public object value = null;       
+   public bool   reflectToAttribute;
+   public bool   readOnly;    
+   public bool   notify;    
+   public string computed = null;
+   public string observer = null;   
+}
+
+// @computed
+
+// @listener
+
+// @observe
+
+// @behavior

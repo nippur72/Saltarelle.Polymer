@@ -83,27 +83,27 @@
 		}
 	}, PolymerElement);
 	ss.initClass($Program, $asm, {});
-	ss.setMetadata($MyApp, { attr: [new TagAttribute('my-app')], members: [{ attr: [(function() {
-		var $t1 = new PublishedAttribute();
+	ss.setMetadata($MyApp, { attr: [new ComponentAttribute('my-app')], members: [{ attr: [(function() {
+		var $t1 = new PropertyAttribute();
 		$t1.notify = true;
 		return $t1;
 	})()], name: 'nomeutente', type: 4, returnType: String, sname: 'nomeutente' }] });
-	ss.setMetadata($MyElement, { attr: [new TagAttribute('my-element')], members: [{ attr: [(function() {
-		var $t1 = new PublishedAttribute();
+	ss.setMetadata($MyElement, { attr: [new ComponentAttribute('my-element')], members: [{ attr: [(function() {
+		var $t1 = new PropertyAttribute();
 		$t1.value = 'sessantaquattro';
 		$t1.notify = true;
 		$t1.reflectToAttribute = true;
 		return $t1;
 	})()], name: 'aprop', type: 4, returnType: String, sname: 'aprop' }] });
-	ss.setMetadata($MyInput, { attr: [new TagAttribute('my-input')], members: [{ attr: [(function() {
-		var $t1 = new PublishedAttribute();
+	ss.setMetadata($MyInput, { attr: [new ComponentAttribute('my-input')], members: [{ attr: [(function() {
+		var $t1 = new PropertyAttribute();
 		$t1.value = 'prova';
 		$t1.notify = true;
 		$t1.reflectToAttribute = true;
 		return $t1;
 	})()], name: 'testo', type: 4, returnType: String, sname: 'testo' }] });
-	ss.setMetadata($MyTimer, { attr: [new TagAttribute('my-timer')], members: [{ attr: [(function() {
-		var $t1 = new PublishedAttribute();
+	ss.setMetadata($MyTimer, { attr: [new ComponentAttribute('my-timer')], members: [{ attr: [(function() {
+		var $t1 = new PropertyAttribute();
 		$t1.value = 0;
 		return $t1;
 	})()], name: 'start', type: 4, returnType: ss.Int32, sname: 'start' }] });
